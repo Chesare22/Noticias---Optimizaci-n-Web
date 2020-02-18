@@ -5,6 +5,7 @@ Este proyecto es para la materia optativa "Optimización de aplicaciones web" ti
 + **php**.- Hace consultas a internet y a la base de datos. La mayoría de los archivos .php (excluyendo librerías) contienen funciones que se pueden llamar con Ajax y devuelven información en formato JSON. Estos archivos no van a generar html, sólo son para hacer consultas.
 + **html** y **css**.- Muestran la información de manera agradable para el usuario. Contiene todos los elementos con los cuales el usuario va a interactuar.
 + **javascript**.- Hace que las páginas sean dinámicas y "tengan comportamiento". Su principal función será conectar los archivos html y php.
++ **EsLint**.- Define los patrones de codificación presentes en el código JavaScript. Sus reglas están presentes en el archivo _package.json_.
 
 ## Características del proyecto
 ### Implementadas
