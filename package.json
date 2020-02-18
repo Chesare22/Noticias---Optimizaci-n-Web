@@ -1,0 +1,144 @@
+{
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-html": "^6.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "plugins": [
+      "html"
+    ],
+    "settings": {
+      "html/indent": "0"
+    },
+    "rules": {
+      "no-console": "off",
+      "no-unused-vars": "error",
+      "no-var": "error",
+      "no-trailing-spaces": "error",
+      "prefer-template": "error",
+      "prefer-const": "error",
+      "comma-spacing": "error",
+      "indent": [
+        "error",
+        2
+      ],
+      "keyword-spacing": [
+        "error",
+        {
+          "before": true,
+          "after": true
+        }
+      ],
+      "template-curly-spacing": "error",
+      "no-empty": [
+        "error",
+        {
+          "allowEmptyCatch": true
+        }
+      ],
+      "new-cap": [
+        "error",
+        {
+          "properties": false
+        }
+      ],
+      "space-before-blocks": "error",
+      "no-use-before-define": "error",
+      "camelcase": "warn",
+      "spaced-comment": [
+        "warn",
+        "always",
+        {
+          "exceptions": [
+            "-",
+            "*",
+            "~"
+          ]
+        }
+      ],
+      "no-multi-str": "off",
+      "valid-jsdoc": [
+        "error",
+        {
+          "requireReturn": false
+        }
+      ],
+      "max-len": [
+        "warn",
+        {
+          "code": 120,
+          "ignoreComments": true,
+          "ignoreStrings": true,
+          "tabWidth": 2
+        }
+      ],
+      "padded-blocks": [
+        "error",
+        "never"
+      ],
+      "brace-style": "error",
+      "block-spacing": [
+        "error",
+        "always"
+      ],
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "arrow-body-style": [
+        "error",
+        "as-needed"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "space-infix-ops": "error",
+      "dot-location": [
+        "error",
+        "property"
+      ],
+      "eqeqeq": [
+        "error",
+        "smart"
+      ],
+      "operator-linebreak": [
+        "error",
+        "after"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "always"
+      ],
+      "quote-props": [
+        "warn",
+        "as-needed"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "arrow-spacing": "error"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint",
+      "ecmaVersion": 2017
+    }
+  }
+}
