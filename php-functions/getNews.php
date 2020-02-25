@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 require_once './simplepie/autoloader.php';
+
 class News {
   public function __construct($link, $title, $author, $date, $description, $content) {
     $this->link = $link;
