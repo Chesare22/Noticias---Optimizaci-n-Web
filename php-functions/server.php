@@ -6,7 +6,7 @@ include 'News.php';
 $url = htmlspecialchars($_GET["url"]);
 $feed = new SimplePie();
 
-/*switch ($_GET['option']) {
+switch ($_GET['option']) {
     case 'url':
         if(!existURL($url)) {
             infoNews($url, $feed);
@@ -18,11 +18,7 @@ $feed = new SimplePie();
     case 'searchNews':
         matchNews($_GET['word']);
         break;
-}*/
-
-$url = 'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
-
-infoNews($url,$feed);
+}
 
 function existURL($url) {
     $file = fopen('urls.txt', 'a+');
@@ -98,5 +94,3 @@ function infoNews($url, $feed) {
         insertNews($news);
     }
 }
-
-
