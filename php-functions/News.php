@@ -1,5 +1,4 @@
 <?php
-
 class News{
     private $title;
     private $author;
@@ -27,5 +26,14 @@ class News{
     
     public function getDescription() {
         return $this->description;
+    }
+
+    public function toArray() {
+        return $array = array(
+            "Title: " => $this->getTitle(),
+            "Author: " => $this->getAuthor(),
+            "Date: " => $this->getDate(),
+            "Description: " => $this->getDescription()
+        );
     }
 }

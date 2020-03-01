@@ -41,8 +41,9 @@ function matchNews($word) {
     $query->bindParam(':word', $word);
     $query->execute();
     $results = $query->fetch(PDO::FETCH_ASSOC);
+    $news = new News($results['title'], $results['author'], $results['date'], $results['description']);
     
-    echo json_encode(new News($results['title'], $results['author'], $results['date'], $results['description']));
+    echo json_encode($news->toArray());
 }
 
 function insertNews($news) {
@@ -51,10 +52,6 @@ function insertNews($news) {
     $query = $connection->prepare('INSERT INTO `notice`(`title`, `author`, `date`, `description`) 
         VALUES (:title,:author,:date,:description)');
 
-    echo $news->getTitle();
-    echo $news->getAuthor();
-    echo $news->getDate();
-    echo $news->getDescription();
     $query->bindParam(':title', $news->getTitle());
     $query->bindParam(':author', $news->getAuthor());
     $query->bindParam(':date', $news->getDate());
@@ -69,10 +66,10 @@ function selectNews() {
     $query->execute();
     $results = $query->fetch(PDO::FETCH_ASSOC);
     $count = $query->rowCount();
-    $list = array();
     
     for($i=0; $i<$count; $i++) {
-        $list[$i] = json_encode(toArray(new News($results['title'], $results['author'], $results['date'], $results['description'])) );
+        $news = new News($results['title'], $results['author'], $results['date'], $results['description']);
+        $list[$i] = json_encode($news->toArray());
         $results = $query->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -95,12 +92,4 @@ function infoNews($url, $feed) {
         insertNews($news);
     }
 }
-
-function toArray($news) {
-    return $array = array(
-        "Title: " => $news->getTitle(),
-        "Author: " => $news->getAuthor(),
-        "Date: " => $news->getDate(),
-        "Description: " => $news->getDescription()
-    );
-}
+?>
