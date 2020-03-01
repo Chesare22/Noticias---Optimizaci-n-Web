@@ -5,14 +5,12 @@ class News{
     private $author;
     private $date;
     private $description;
-    private $content;
     
-    public function __construct($title, $author, $date, $description, $content) {
+    public function __construct($title, $author, $date, $description) {
         $this->title = $title;
         $this->author = $author;
         $this->date = $date;
         $this->description = $description;
-        $this->content = $content;
     }
     
     public function getTitle() {
@@ -20,7 +18,7 @@ class News{
     }
     
     public function getAuthor() {
-        return $this->Author;
+        return $this->author;
     }
     
     public function getDate() {
@@ -28,10 +26,6 @@ class News{
     }
     
     public function getDescription() {
-        return $this->$description;
-    }
-    
-    public function getContent() {
-        return $this->content;
+        return $this->description;
     }
 }

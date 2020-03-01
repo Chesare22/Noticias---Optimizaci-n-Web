@@ -12,8 +12,8 @@ switch ($_GET['option']) {
             infoNews($url, $feed);
         }
         break;
-    case 'getNews':
-        getNews();
+    case 'selectNews':
+        selectNews();
         break;
     case 'searchNews':
         matchNews($_GET['word']);
@@ -42,21 +42,23 @@ function matchNews($word) {
     $query->execute();
     $results = $query->fetch(PDO::FETCH_ASSOC);
     
-    echo json_encode(new News($results['title'], $results['author'], $results['date'], $results['description'], $results['content']));
+    echo json_encode(new News($results['title'], $results['author'], $results['date'], $results['description']));
 }
 
 function insertNews($news) {
     require './db.php';
 
-    $query = $connection->prepare('INSERT INTO `notice`(`title`, `author`, `date`, `description`, `content`) 
-        VALUES (:title,:author,:dates,:descriptions,:content)');
+    $query = $connection->prepare('INSERT INTO `notice`(`title`, `author`, `date`, `description`) 
+        VALUES (:title,:author,:date,:description)');
 
+    echo $news->getTitle();
+    echo $news->getAuthor();
+    echo $news->getDate();
+    echo $news->getDescription();
     $query->bindParam(':title', $news->getTitle());
     $query->bindParam(':author', $news->getAuthor());
-    $query->bindParam(':dates', $news->getDate());
-    $query->bindParam(':descriptions', $news->getDescription());
-    $query->bindParam(':content', $news->getContent());
-    echo $news->getDate();
+    $query->bindParam(':date', $news->getDate());
+    $query->bindParam(':description', $news->getDescription());
     $query->execute();
 }
 
@@ -70,8 +72,8 @@ function selectNews() {
     $list = array();
     
     for($i=0; $i<$count; $i++) {
-        $list[$i] = json_encode(new News($results['title'], $results['author'], $results['date'], $results['description'], $results['content']) );
-        $results = $query->fetch(PDO::FETCH_ASSOC);    
+        $list[$i] = json_encode(toArray(new News($results['title'], $results['author'], $results['date'], $results['description'])) );
+        $results = $query->fetch(PDO::FETCH_ASSOC);
     }
 
     echo json_encode($list);
@@ -88,9 +90,17 @@ function infoNews($url, $feed) {
         $author = $item->get_author()->get_name();
         $date = $item->get_date('Y-m-d H:i:s');
         $description = $item->get_description();
-        $content = $item->get_content(true);
-        $news = new News($title,$author,$date,$description,$content);
+        $news = new News($title,$author,$date,$description);
         
         insertNews($news);
     }
+}
+
+function toArray($news) {
+    return $array = array(
+        "Title: " => $news->getTitle(),
+        "Author: " => $news->getAuthor(),
+        "Date: " => $news->getDate(),
+        "Description: " => $news->getDescription()
+    );
 }
