@@ -1,10 +1,11 @@
 <?php
-require './db.php';
 include 'News.php';
 
 selectNews();
 
 function selectNews() {
+    require './db.php';
+    
     $query = $connection->prepare('SELECT * FROM notice WHERE 1');
     $query->execute();
     $results = $query->fetch(PDO::FETCH_ASSOC);

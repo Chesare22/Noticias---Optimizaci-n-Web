@@ -1,12 +1,12 @@
 <?php
-require './db.php';
 include 'News.php';
 
 $word = $_GET['word']; //palabra a encontrar concurrencias
-
 matchNews($word);
 
 function matchNews($word) {
+    require './db.php';
+
     $query = $connection->prepare('SELECT * FROM notice MATCH word = :word');
     $query->bindParam(':word', $word);
     $query->execute();
