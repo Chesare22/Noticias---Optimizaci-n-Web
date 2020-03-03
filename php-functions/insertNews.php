@@ -14,7 +14,7 @@ function insertNews($news) {
 
     $query = $connection->prepare('INSERT INTO `notice`(`title`, `author`, `date`, `description`) 
         VALUES (:title,:author,:date,:description)');
-    $query->bindParam(':title', $title);
+    $query->bindParam(':title', $news->getTitle();
     $query->bindParam(':author', $news->getAuthor());
     $query->bindParam(':date', $news->getDate());
     $query->bindParam(':description', $news->getDescription());
