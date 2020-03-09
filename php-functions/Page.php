@@ -1,4 +1,4 @@
-<?php
+<?php 
 class Page{ 
     private $url;
     private $text;

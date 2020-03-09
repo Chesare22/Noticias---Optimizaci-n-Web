@@ -19,7 +19,7 @@ function getInfo($url, $tag) {
     $filetime = date('Y-m-d H:i:s', $filetime);
     
     $page = new Page($url, $matches, $filetime);
-
+    
     echo json_encode($page->toArray());
 }
 ?>

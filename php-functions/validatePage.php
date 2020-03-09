@@ -13,7 +13,7 @@ function validateURL($page) {
     $query->execute();
     $results = $query->fetch(PDO::FETCH_ASSOC);
     $count = $query->rowCount();
-
+    
     for($i=0; $i<$count; $i++) {
         if(compStrg($page->getURL(), $results['url'])) {
             if(!compStrg($page->getDate(), $results['date'])) {

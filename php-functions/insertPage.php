@@ -9,8 +9,8 @@ function insertDB($page) {
     require './db.php';
 
     $query = $connection->prepare('INSERT INTO `webpage`(`url`, `text`, `date`) 
-        VALUES (:title,:text,:date)');
-    $query->bindParam(':title', $page->getURL());
+        VALUES (:url,:text,:date)');
+    $query->bindParam(':url', $page->getURL());
     $query->bindParam(':author', $page->getText());
     $query->bindParam(':date', $page->getDate());
     $query->execute();
