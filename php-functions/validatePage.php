@@ -17,7 +17,7 @@ function validateURL($page) {
     for($i=0; $i<$count; $i++) {
         if(compStrg($page->getURL(), $results['url'])) {
             if(!compStrg($page->getDate(), $results['date'])) {
-                return json_encode($page->toArray());
+                echo json_encode($page->toArray());
             }
         }
         $results = $query->fetch(PDO::FETCH_ASSOC);
@@ -25,6 +25,6 @@ function validateURL($page) {
 }
 
 function compStrg($str1, $str2) {
-    return (strcasecmp($str1, $str2) == 0);
+    return (strcasecmp($str1, $str2) === 0);
 }
 ?>
