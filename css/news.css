@@ -1,3 +1,21 @@
+:root {
+  /* Variables */
+  --small-icon-size: 15px;
+}
+
 body{
   margin: 0;
+}
+
+div.content {
+  margin-left: 20px;
+}
+
+i.small-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: var(--small-icon-size) var(--small-icon-size);
+  height: var(--small-icon-size);
+  width: var(--small-icon-size);
 }
