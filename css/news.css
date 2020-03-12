@@ -1,21 +1,57 @@
-:root {
-  /* Variables */
-  --small-icon-size: 15px;
+body {
+  margin: 50px 7%;
+  background-color: #29ab87;
 }
+body > header {
+  width: 100%;
+  min-height: 150px;
+  border-radius: 10px 10px 0 0;
+  background-color: white;
+  border-bottom: solid 1px #dcdcdc;
+  padding-bottom: 10px;
 
-body{
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+body > header > .actions {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+body > header > .actions textarea {
+  resize: none;
+  overflow-y: hidden;
+  width: 300px;
 }
 
 div.content {
   margin-left: 20px;
 }
+button.main-button{
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #337ab7;
+  cursor: pointer;
+}
+button.main-button:hover {
+  background-color: #286090;
+}
+button.main-button:active {
+  background-color: #204d74;
+}
+button.main-button:focus {
+  outline: none;
+}
 
-i.small-icon {
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  background-size: var(--small-icon-size) var(--small-icon-size);
-  height: var(--small-icon-size);
-  width: var(--small-icon-size);
+body > main {
+  width: 100%;
+  min-height: 300px;
+  border-radius: 0 0 10px 10px;
+  background-color: white;
 }

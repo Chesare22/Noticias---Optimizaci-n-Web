@@ -7,72 +7,26 @@
   <title>Noticias</title> <!-- Título de la pestaña -->
 </head>
 
-<script src="./js/index.js"></script>
 <script src="./assets/jquery-3.4.1.min.js"></script>
 
 <body>
   <header>
-    <!-- Search-bar goes here -->
+    <h1>Google casero</h1>
+    <div class="actions">
+      <button class="main-button" id="consult">
+        Consultar base de datos
+      </button>
+      <button class="main-button" id="refresh-db">
+        Actualizar base de datos
+      </button>
+      <input type="text" id="search" placeholder="Buscar">
+      <textarea id="urls" placeholder="urls"></textarea>
+    </div>
   </header>
   <main>
-    <div id="sorted-by-year" class="dropdown">
-      <p>
-        Ordenar por año <i class="icon opened" />
-      </p>
-      <!-- Insert a dropdown for each year -->
-      <div class="content">
-        <div class="dropdown">
-          <p>
-            2020 <i class="icon opened" />
-          </p>
-          <div class="content">
-            <!-- Insert an article for each new of the year -->
-            <article>
-              <header>
-                <p>
-                  Title: <a id="title">Cargando...</a>
-                </p>
-                <p>
-                  Author: <span id="author">Cargando...</span>
-                </p>
-                <p>
-                  Date: <span id="date">Cargando...</span>
-                </p>
-                <p>
-                  Description: <span id="description">Cargando...</span>
-                </p>
-              </header>
-              <span id="content">Cargando...</span>
-            </article>
-          </div>
-        </div>
-        <div class="dropdown">
-          <p>
-            2019 <i class="icon closed" />
-          </p>
-          <div class="content"></div>
-        </div>
-        <div class="dropdown">
-          <p>
-            2018 <i class="icon closed" />
-          </p>
-          <div class="content"></div>
-        </div>
-      </div>
-    </div>
-    <div id="sorted-by-month" class="dropdown">
-      <p>
-        Ordenar por mes <i class="icon closed"/>
-      </p>
-      <div class="content"></div>
-    </div>
-    <div id="sorted-by-day" class="dropdown">
-      <p>
-        Ordenar por día <i class="icon closed"/>
-      </p>
-      <div class="content"></div>
-    </div>
+
   </main>
 </body>
-
 </html>
+
+<script src="./js/index.js"></script>
