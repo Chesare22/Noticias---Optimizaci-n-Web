@@ -1,5 +1,5 @@
-<?php 
-class Page{ 
+<?php
+class Page {
     private $url;
     private $text;
     private $date;
@@ -21,20 +21,12 @@ class Page{
     public function getDate() {
         return $this->date;
     }
-
+    
     public function toArray() {
         return array(
             'URL' => $this->url,
             'Text' => $this->text,
             'Date' => $this->date
-        );
-    }
-
-    public static function toPage($stdClass) {
-        return new Page(
-            $stdClass->URL,
-            $stdClass->Text,
-            $stdClass->Date,
         );
     }
 }
