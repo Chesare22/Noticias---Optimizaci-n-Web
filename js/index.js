@@ -5,8 +5,8 @@ function autoGrow (element) {
   element.style.height = `${element.scrollHeight - 4}px`;
 }
 
-window.onload(() => {
+window.onload = () => {
   $('#urls').on('input', function () {
     autoGrow(this);
   });
-});
+};
