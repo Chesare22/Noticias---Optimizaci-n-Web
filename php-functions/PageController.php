@@ -1,5 +1,6 @@
 <?php
 include_once 'PageModel.php';
+header('Content-Type: application/json');
 
 $pageController = new PageController();
 

@@ -38,6 +38,7 @@ button.main-button{
   color: #fff;
   background-color: #337ab7;
   cursor: pointer;
+  position: relative;
 }
 button.main-button:hover {
   background-color: #286090;
@@ -47,6 +48,20 @@ button.main-button:active {
 }
 button.main-button:focus {
   outline: none;
+}
+
+button.main-button.loading {
+  padding-right: 13px;
+}
+button.main-button >img{
+  display: none;
+  position: absolute;
+  width: 20px;
+}
+button.main-button.loading > img {
+  display: inline-block;
+  right: 3px;
+  top: 7.5px;
 }
 
 body > main {
