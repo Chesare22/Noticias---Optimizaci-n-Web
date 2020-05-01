@@ -22,7 +22,6 @@ window.onload = () => {
         console.log(error);
       },
       complete: () => {
-        console.log('Complete', this)
         $(this).removeClass('loading')
       }
     });
