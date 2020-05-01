@@ -1,6 +1,7 @@
 body {
   margin: 50px 7%;
   background-color: #29ab87;
+  font-family: arial,sans-serif;
 }
 body > header {
   width: 100%;
@@ -38,6 +39,7 @@ button.main-button{
   color: #fff;
   background-color: #337ab7;
   cursor: pointer;
+  position: relative;
 }
 button.main-button:hover {
   background-color: #286090;
@@ -49,9 +51,53 @@ button.main-button:focus {
   outline: none;
 }
 
+button.main-button.loading {
+  padding-right: 13px;
+}
+button.main-button >img{
+  display: none;
+  position: absolute;
+  width: 20px;
+}
+button.main-button.loading > img {
+  display: inline-block;
+  right: 3px;
+  top: 7.5px;
+}
+
 body > main {
-  width: 100%;
+  padding: 10px;
+  width: auto;
   min-height: 300px;
   border-radius: 0 0 10px 10px;
   background-color: white;
+}
+
+body > main h3 {
+  margin: 0;
+  padding-top: 3px;
+  margin-bottom: 3px;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: normal;
+}
+body > main h3 > a {
+  text-decoration: none;
+  color: #1a0dab;
+}
+
+body > main .link-and-description {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.58;
+  color: #4d5156;
+}
+body > main .link-and-description .date {
+  color: #70757a;
+}
+body > main .link-and-description .description {
+  font-weight: normal;
+  max-height: 44px;
+  overflow: hidden;
+  word-wrap: break-word;
 }

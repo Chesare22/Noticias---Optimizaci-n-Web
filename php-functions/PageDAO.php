@@ -68,10 +68,10 @@ class PageDAO {
         $results = $query->fetch(PDO::FETCH_ASSOC);
         $count = $query->rowCount();
         $list = array();
-        echo $count;
+        // echo $count;
     
         for($i = 0; $i < $count; $i++) {
-            $page = new Page($results['url'], null, $results['date']);
+            $page = new Page($results['url'], $results['text'], $results['date']);
             $list[$i] = $page->toArray();
             $results = $query->fetch(PDO::FETCH_ASSOC);
         }
