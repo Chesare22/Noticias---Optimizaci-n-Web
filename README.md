@@ -19,6 +19,12 @@ Este proyecto es para la materia optativa "Optimización de aplicaciones web" ti
     -exec rm {} \; \
     -exec mv {}.min {} \;
   ```
+5. Eliminar archivos sobrantes. Los únicos que se quedan son:
+  + /assets/*
+  + /css/*
+  + /js/*
+  + /php-functions/*
+  + index.html
 
 ## Tecnologías
 + **php**.- Hace consultas a internet y a la base de datos. La mayoría de los archivos .php (excluyendo librerías) contienen funciones que se pueden llamar con Ajax y devuelven información en formato JSON. Estos archivos no van a generar html, sólo son para hacer consultas.
