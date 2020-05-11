@@ -1,24 +1,74 @@
-const url = 'http://www.reforma.com/rss/portada.xml';
+/* global $ */
+const backendUrl = 'http://localhost/Noticias/php-functions/PageController.php';
 
-function getNews (addNews) {
-  const xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('get', `php-functions/getNews.php?url=${url}`, true);
-  xmlhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      addNews(JSON.parse(this.responseText));
-    }
-  };
-  xmlhttp.send();
+function autoGrow (element) {
+  element.style.height = '30px';
+  element.style.height = `${element.scrollHeight - 4}px`;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  getNews(news => {
-    const link = document.getElementById('title');
-    link.innerText = news.title;
-    link.href = news.link;
-    document.getElementById('author').innerText = news.author;
-    document.getElementById('date').innerText = news.date;
-    document.getElementById('description').innerText = news.description;
-    document.getElementById('content').innerText = news.content;
+window.onload = () => {
+  $('#urls').on('input', function () {
+    autoGrow(this);
   });
-});
+
+  $('#refresh-db').on('click', function () {
+    $(this).addClass('loading')
+    const selectedUrl = $('#urls').val();
+    $.ajax(`${backendUrl}?url=${selectedUrl}`, {
+      success (response) {
+        console.log(response);
+      },
+      error (error) {
+        console.log(error);
+      },
+      complete: () => {
+        $(this).removeClass('loading')
+      }
+    });
+  });
+
+  $('#consult').on('click', function () {
+    const word = $('#search').val();
+    $(this).addClass('loading')
+    $.ajax(`${backendUrl}?word=${word}`, {
+      success (pages) {
+        const dateFormatter = new Intl.DateTimeFormat('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+        const elements = pages.map(page => {
+          const linkAndDescription = document.createElement('div');
+          linkAndDescription.className = 'link-and-description';
+
+          const link = document.createElement('h3');
+          $(link).append(
+            $(document.createElement('a'))
+              .attr('href',page.URL)
+              .attr('target','_blank')
+              .text(page.URL)
+          );
+          linkAndDescription.appendChild(link);
+
+          const date = document.createElement('div');
+          date.className = 'date';
+          date.innerText = dateFormatter.format(new Date(page.Date));
+          linkAndDescription.appendChild(date);
+
+          const description = document.createElement('div');
+          description.className = 'description';
+          description.innerText = page.Text;
+          linkAndDescription.appendChild(description);
+
+          return linkAndDescription;
+        })
+
+        $('#results')
+          .empty()
+          .append(...elements)
+      },
+      error (error) {
+        console.log(error);
+      },
+      complete: () => {
+        $(this).removeClass('loading');
+      }
+    });
+  });
+};

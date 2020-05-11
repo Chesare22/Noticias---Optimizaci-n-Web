@@ -4,32 +4,49 @@
 <head>
   <link rel="stylesheet" href="css/news.css"> <!-- Hoja de estilos -->
   <meta charset="utf-8">
-  <title></title> <!-- Título de la pestaña -->
+  <title>Noticias</title> <!-- Título de la pestaña -->
 </head>
 
-<script src="./js/index.js"></script>
+<script src="./assets/jquery-3.4.1.min.js"></script>
 
 <body>
-  <article>
-    <header>
-      <p>
-        Title:
-        <a id="title">
-          Cargando...
-        </a>
-      </p>
-      <p>
-        Author: <span id="author">Cargando...</span>
-      </p>
-      <p>
-        Date: <span id="date">Cargando...</span>
-      </p>
-      <p>
-        Description: <span id="description">Cargando...</span>
-      </p>
-    </header>
-    <span id="content">Cargando...</span>
-  </article>
-</body>
+  <header>
+    <h1>Google casero</h1>
+    <div class="actions">
+      <button class="main-button" id="consult">
+        Consultar base de datos
+        <img src="assets/icons/loading.svg" width="20px">
+      </button>
 
+      <button class="main-button" id="refresh-db">
+        Actualizar base de datos
+        <img src="assets/icons/loading.svg">
+      </button>
+
+      <input type="text" id="search" placeholder="Buscar">
+
+      <textarea id="urls" placeholder="urls"></textarea>
+    </div>
+  </header>
+
+  <main id="results">
+    <div class="link-and-description">
+      <h3>
+        <a href="https://teamtreehouse.com/community/how-do-i-remove-white-space-between-header-section-footer" target="_blank">
+          Este es el título
+        </a>
+      </h3>
+
+      <div class="date">
+        22 de junio
+      </div>
+
+      <div class="description">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam aliquid qui tempore perferendis, quod veritatis doloribus error modi dolore. Optio quis, expedita rem sunt est aliquam assumenda! Error, neque similique. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia commodi corrupti laborum. Quaerat, ab. Qui, illo harum ipsum exercitationem laudantium illum iste consequatur et placeat cum corporis consequuntur, cumque nam? normal;
+      </div>
+    </div>
+  </main>
+</body>
 </html>
+
+<script src="./js/index.js"></script>

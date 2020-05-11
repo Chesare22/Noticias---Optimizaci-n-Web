@@ -44,7 +44,7 @@
       ],
       "no-dupe-else-if": "error",
       "no-duplicate-imports":"error",
-      "no-unused-vars": "error",
+      "no-unused-vars": "warn",
       "no-undef-init": "warn",
       "no-unused-expressions": "error",
       "no-unmodified-loop-condition": "warn",
@@ -189,10 +189,7 @@
         }
       ],
       "rest-spread-spacing":"error",
-      "arrow-parens": [
-        "error",
-        "as-needed"
-      ],
+      "arrow-parens": "error",
       "arrow-body-style": [
         "error",
         "as-needed"
