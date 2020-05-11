@@ -1,9 +1,15 @@
 {
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.3",
+    "babel-preset-env": "^1.7.0",
+    "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-html": "^6.0.0"
+  },
+  "scripts": {
+    "build": "babel js -d js"
   },
   "eslintConfig": {
     "root": true,
@@ -43,14 +49,14 @@
         "always"
       ],
       "no-dupe-else-if": "error",
-      "no-duplicate-imports":"error",
+      "no-duplicate-imports": "error",
       "no-unused-vars": "warn",
       "no-undef-init": "warn",
       "no-unused-expressions": "error",
       "no-unmodified-loop-condition": "warn",
       "no-var": "error",
       "no-trailing-spaces": "error",
-      "prefer-spread":"warn",
+      "prefer-spread": "warn",
       "no-template-curly-in-string": "error",
       "prefer-template": "error",
       "template-curly-spacing": "error",
@@ -69,7 +75,7 @@
           "SwitchCase": 1
         }
       ],
-      "key-spacing":"error",
+      "key-spacing": "error",
       "keyword-spacing": "error",
       "no-setter-return": "error",
       "no-import-assign": "error",
@@ -78,10 +84,10 @@
       "no-useless-call": "error",
       "no-useless-concat": "error",
       "no-useless-return": "error",
-      "no-useless-computed-key":"error",
-      "no-useless-constructor":"warn",
-      "no-useless-rename":"error",
-      "object-shorthand":"error",
+      "no-useless-computed-key": "error",
+      "no-useless-constructor": "warn",
+      "no-useless-rename": "error",
+      "object-shorthand": "error",
       "no-extra-parens": [
         "error",
         "all",
@@ -130,7 +136,7 @@
       ],
       "no-implied-eval": "error",
       "no-new": "error",
-      "no-new-object":"error",
+      "no-new-object": "error",
       "no-new-func": "error",
       "no-new-wrappers": "error",
       "new-cap": [
@@ -139,8 +145,8 @@
           "properties": false
         }
       ],
-      "no-unneeded-ternary":"error",
-      "no-whitespace-before-property":"error",
+      "no-unneeded-ternary": "error",
+      "no-whitespace-before-property": "error",
       "no-octal-escape": "error",
       "no-param-reassign": "error",
       "no-proto": "warn",
@@ -171,14 +177,14 @@
       "no-multi-spaces": "error",
       "no-multi-str": "error",
       "no-multiple-empty-lines": "error",
-      "no-negated-condition":"warn",
+      "no-negated-condition": "warn",
       "valid-jsdoc": [
         "error",
         {
           "requireReturn": false
         }
       ],
-      "no-bitwise":"warn",
+      "no-bitwise": "warn",
       "max-len": [
         "warn",
         {
@@ -188,7 +194,7 @@
           "tabWidth": 2
         }
       ],
-      "rest-spread-spacing":"error",
+      "rest-spread-spacing": "error",
       "arrow-parens": "error",
       "arrow-body-style": [
         "error",
@@ -199,7 +205,7 @@
         "beside"
       ],
       "arrow-spacing": "error",
-      "no-confusing-arrow":"warn",
+      "no-confusing-arrow": "warn",
       "brace-style": [
         "error",
         "1tbs",
@@ -207,31 +213,31 @@
           "allowSingleLine": true
         }
       ],
-      "prefer-object-spread":"error",
+      "prefer-object-spread": "error",
       "object-curly-spacing": [
         "error",
         "always"
       ],
-      "switch-colon-spacing":"error",
-      "space-in-parens":"error",
+      "switch-colon-spacing": "error",
+      "space-in-parens": "error",
       "space-infix-ops": "error",
       "dot-location": [
         "error",
         "property"
       ],
       "dot-notation": "error",
-      "no-lonely-if":"error",
+      "no-lonely-if": "error",
       "eqeqeq": [
         "error",
         "smart"
       ],
-      "no-mixed-operators":"warn",
-      "operator-assignment":"error",
+      "no-mixed-operators": "warn",
+      "operator-assignment": "error",
       "operator-linebreak": [
         "error",
         "after"
       ],
-      "linebreak-style":"error",
+      "linebreak-style": "error",
       "function-paren-newline": [
         "error",
         "multiline"
@@ -253,8 +259,8 @@
         "error",
         "as-needed"
       ],
-      "semi-spacing":"error",
-      "semi-style":"error",
+      "semi-spacing": "error",
+      "semi-style": "error",
       "semi": [
         "error",
         "always"
