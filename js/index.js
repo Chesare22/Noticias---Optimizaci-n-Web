@@ -42,7 +42,7 @@ window.onload = () => {
             $(document.createElement('a'))
               .attr('href',page.URL)
               .attr('target','_blank')
-              .text(page.URL)
+              .text(page.Title)
           );
           linkAndDescription.appendChild(link);
 

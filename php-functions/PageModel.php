@@ -26,6 +26,7 @@ class PageModel {
         curl_close($ch);
 
         $html = $this->replaceJS($page);
+        $title = $this->extractTitle($html);
     
         if($deep > 0) {
             $this->extractURLs($page, $deep);
@@ -33,7 +34,7 @@ class PageModel {
     
         $text = $this->replaceHTML($html);
         $date = $this->extractDate($url);
-        $page = new Page($url, $text, $date);
+        $page = new Page($url, $title, $text, $date);
         $message = $this->pageDAO->validatePage($page);
         
         array_push($this->urls, [$url => $message]);
@@ -56,11 +57,11 @@ class PageModel {
     }
     
     private function extractURLs($page, $deep) {
-        preg_match_all('(https://www.(.*)")siU', $page, $keyURL);
+        preg_match_all('(https://(.*)")siU', $page, $keyURL);
 
         for($i = 0; $i < count($keyURL[1]); $i++) {
             if(!array_key_exists($keyURL[1][$i], $this->urls) ) {
-                $this->extractInfo('https://www.'.$keyURL[1][$i], $deep-1);
+                $this->extractInfo('https://'.$keyURL[1][$i], $deep-1);
             }
         }
     }
@@ -75,6 +76,11 @@ class PageModel {
         }
 
         return $date;
+    }
+
+    private function extractTitle($html) {
+        preg_match('/<title>([^<]+)</', $html, $title);
+		return isset($title[1]) ? $title[1] : false;
     }
 
     public function matchWordOnURL($word) {
