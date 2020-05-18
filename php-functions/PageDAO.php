@@ -5,6 +5,7 @@ include_once 'DB.php';
 class PageDAO {
     private $db;
     private $url;
+    private $title;
     private $text;
     private $date;
 
@@ -15,17 +16,22 @@ class PageDAO {
 
     public function validatePage($page) {
         $this->url = $page->getURL();
+        $this->title = $page->getTitle();
         $this->text = $page->getText();
         $this->date = $page->getDate();
 
-        $sql = 'SELECT url, date FROM webpage WHERE 1';
+        if($this->title == null) {
+            return 'page invalid';
+        }
+
+        $sql = 'SELECT title, date FROM webpage WHERE 1';
         $query = $this->db->getConnection()->prepare($sql);
         $query->execute();
         $results = $query->fetch(PDO::FETCH_ASSOC);
         $count = $query->rowCount();
         
         for($i = 0; $i < $count; $i++) {
-            if( $this->compStrg($this->url, $results['url']) ) {
+            if( $this->compStrg($this->title, $results['title']) ) {
                 if( !$this->compStrg($this->date, $results['date']) ) {
                     $this->updatePage();
                     return 'updated';
@@ -41,10 +47,11 @@ class PageDAO {
     }
     
     private function insertPage() {
-        $sql = 'INSERT INTO `webpage`(`url`, `text`, `date`) VALUES (:url,:text,:date)';
+        $sql = 'INSERT INTO `webpage`(`url`, `title`, `text`, `date`) VALUES (:url, :title, :text,:date)';
         $query = $this->db->getConnection()->prepare($sql);
         
         $query->bindParam(':url', $this->url);
+        $query->bindParam(':title', $this->title);
         $query->bindParam(':text', $this->text);
         $query->bindParam(':date', $this->date);
         $query->execute();
@@ -68,11 +75,10 @@ class PageDAO {
         $results = $query->fetch(PDO::FETCH_ASSOC);
         $count = $query->rowCount();
         $list = array();
-        // echo $count;
     
         for($i = 0; $i < $count; $i++) {
-            $page = new Page($results['url'], $results['text'], $results['date']);
-            $list[$i] = $page->toArray();
+            $page = new Page($results['url'], $results['title'], $results['text'], $results['date']);
+            array_push($list, $page->toArray());
             $results = $query->fetch(PDO::FETCH_ASSOC);
         }
         

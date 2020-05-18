@@ -1,9 +1,9 @@
 <?php
 class DB {
-    private $server = '127.0.0.1';
-    private $database = 'newsdb';
+    private $server = 'localhost';
+    private $database = 'oawdb';
     private $username = 'root';
-    private $password = 'root';
+    private $password = '';
     private $connection;
 
     public function __construct() {
